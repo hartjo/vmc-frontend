@@ -1,0 +1,51 @@
+@import 'color-helper.scss';
+
+.page {
+    padding-top: 15px;
+}
+
+.component-container {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.component-header {
+
+    padding: 0px;
+
+    & .component-title {
+        font-size: 1.8em;
+        color: $main-color;
+        font-weight: 600;
+    }
+
+}
+
+.component-body {
+    padding: 0px;
+    overflow: hidden;
+
+    & .table-title {
+        font-weight: 600;
+        font-size: 1.5em;
+        color: $main-color;
+    }
+
+    & .component-action {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
+        margin-bottom: 10px;
+        overflow: hidden;
+
+        & .action {
+            float: right;
+        }
+    }
+}
+
+.field-disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}

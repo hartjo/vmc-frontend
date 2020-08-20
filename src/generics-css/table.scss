@@ -1,0 +1,28 @@
+@import 'color-helper.scss';
+@import 'typography-helper.scss';
+
+
+.table-responsive {
+    border: solid 1px #8e8e8e;
+}
+
+table {
+
+    margin-bottom: 0px !important;
+
+    & thead {
+
+        & tr {
+
+            & th {
+                background: $main-color;
+                color: $text-white;
+                white-space: nowrap;
+                border-top: 0px !important;
+            }
+
+        }
+
+    }
+
+}

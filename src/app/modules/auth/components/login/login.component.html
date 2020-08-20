@@ -1,0 +1,27 @@
+<div class="login-body"></div>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-12 login-form">
+            <h3 class="m-t-30">Login</h3>
+            
+            <form novalidate>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username *" id="username" autocomplete="off" formControlName="username"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password *" id="password" autocomplete="off" formControlName="password"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
+                        <span *ngIf="loading === false">Login</span>
+                        <span *ngIf="loading" class="spinner-grow spinner-grow-sm m-r-5" role="status" aria-hidden="true"></span>
+                        <span *ngIf="loading">Logging in...</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <!-- <a href="#" class="ForgetPwd">Forgot Password?</a> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

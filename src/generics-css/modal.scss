@@ -1,0 +1,19 @@
+.custom-modal {
+    position: fixed;
+    background: #ffffff;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 15px;
+    overflow: hidden;
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    overflow-y: scroll;
+    margin-bottom: 40px;
+    margin-top: 90px;
+
+    @media only screen and (max-width: 992px) {
+        margin-top: 56px;
+    }
+}
