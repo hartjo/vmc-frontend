@@ -1,1 +1,21 @@
-<p>patient works!</p>
+<div class="card m-t-20">
+    <div class="card-body">
+        Patient List
+    </div>
+</div>
+
+<table class="table table-striped m-b-20">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" *ngFor="let column of table.columns">{{column.displayName}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of table.list">
+            <td *ngFor="let column of table.columns">{{item[column.name]}}</td>
+        </tr>
+        <tr *ngIf="table.list.length <= 0">
+            <td colspan="20" class="text-center">No Records Found!</td>
+        </tr>
+    </tbody>
+</table>

@@ -29,8 +29,10 @@ const appReducer = createReducer(
     })(state, action);
   }),
   on(AppActions.Logout, (state, action) => {
-    // state = undefined;
-    return state;
+    return produce((draft, draftAction) => {
+      draft.credentials.token = 'aes';
+      draft.credentials.employeeDetails =  '';
+    })(state, action);
   }),
 
 );

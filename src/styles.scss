@@ -6,4 +6,28 @@
 @import 'typography-helper.scss';
 @import 'modal.scss';
 @import 'component-layout.scss';
-@import 'table.scss';/* You can add global styles to this file, and also import other style files */
+@import 'table.scss';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~ngx-toastr/toastr';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+.o-hidden {
+    overflow: hidden !important;
+}
+
+::ng-deep .fc-col-header-cell-cushion {
+    color: #ffffff !important;
+}
+
+.fc .fc-col-header-cell-cushion { /* needs to be same precedence */
+    padding-top: 5px; /* an override! */
+    padding-bottom: 5px; /* an override! */
+    color: #ffffff !important;
+  }
+
+  .full-calendar {
+      width: 90%;
+  }

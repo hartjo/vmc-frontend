@@ -23,7 +23,7 @@ export class AuthEffects {
       concatMap((action) => this.authService.login(action.params)
         .pipe(
           map((response: any) => {
-            return AuthActions.loginSuccess({ data: response.data });
+            return AuthActions.loginSuccess({ data: response });
           }),
           catchError((response: any) => {
             return of(AuthActions.loginFailure({error: response}));

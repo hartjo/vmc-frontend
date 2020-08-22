@@ -27,8 +27,9 @@
 			],
 			"@environments/*": [
 				"src/environments/*"
-			]
-		},
+      ],
+    },
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

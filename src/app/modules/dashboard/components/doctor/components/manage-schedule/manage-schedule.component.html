@@ -1,0 +1,49 @@
+<div class="card m-t-20 m-b-20">
+    <div class="card-body">
+        <span class="text-uppercase font-weight-bolder">Manage Schedule Availability</span>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+    
+    <div class="text-uppercase p-t-10 p-b-10">
+        Select Day of the Week for availability
+    </div>
+
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="sunday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="0">
+        <label class="form-check-label" for="sunday">Sunday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="monday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="1">
+        <label class="form-check-label" for="monday">Monday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="tuesday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="2">
+        <label class="form-check-label" for="tuesday">Tuesday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="wednesday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="3">
+        <label class="form-check-label" for="wednesday">Wednesday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="thursday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="4">
+        <label class="form-check-label" for="thursday">Thursday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="friday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="5">
+        <label class="form-check-label" for="friday">Friday</label>
+    </div>
+    <div class="form-check form-check-inline m-r-20">
+        <input class="form-check-input" type="checkbox" id="saturday" appCheckList [(checklist)]="scheduleSelected" [checklistValue]="6">
+        <label class="form-check-label" for="saturday">Saturday</label>
+    </div>
+
+    <button type="button" class="btn btn-primary" [disabled]="loader" (click)="save()">
+        <span *ngIf="loader === false">Save</span>
+        <span *ngIf="loader" class="spinner-grow spinner-grow-sm m-r-5" role="status" aria-hidden="true"></span>
+        <span *ngIf="loader">Saving...</span>
+    </button>
+
+</div>

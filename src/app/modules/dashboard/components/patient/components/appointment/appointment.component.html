@@ -1,0 +1,51 @@
+<div class="card m-t-20 m-b-20">
+    <div class="card-body">
+        <span class="text-uppercase font-weight-bolder">Make an Appointment</span>
+    </div>
+</div>
+
+<div class="container-fluid">
+
+
+    <div class="text-uppercase p-t-10 p-b-10">
+        Select Doctor
+    </div>
+
+    <table class="table table-striped m-b-20">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" *ngFor="let column of table.columns">{{column.displayName}}</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of table.list">
+                <td *ngFor="let column of table.columns">{{item[column.name]}}</td>
+                <td>
+                    <button type="button" class="btn-sm btn btn-primary" (click)="select(item, content)">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row o-hidden">
+            <div class="col-sm-12 o-hidden" *ngIf="showCalendar">
+                <full-calendar [options]="calendarOptions"></full-calendar>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

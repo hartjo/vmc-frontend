@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthEffects } from './auth.effects';
 
 describe('AuthEffects', () => {
+  // tslint:disable-next-line: prefer-const
   let actions$: Observable<any>;
   let effects: AuthEffects;
 

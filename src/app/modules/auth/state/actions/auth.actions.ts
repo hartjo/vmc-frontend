@@ -5,6 +5,10 @@ export const login = createAction(
   props<{ params: any }>()
 );
 
+export const loginClear = createAction(
+  '[Login] Login Clear'
+);
+
 export const loginSuccess = createAction(
   '[Login] Login Success',
   props<{ data: any }>()

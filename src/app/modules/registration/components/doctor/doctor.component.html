@@ -1,1 +1,92 @@
-<p>doctor works!</p>
+<div class="container">
+
+    <div class="card m-t-20 m-b-20">
+        <div class="card-header">
+            <span class="text-uppercase font-weight-bolder">Doctors Registration Form</span>  <span class=" m-l-20">[ </span><a class="c-pointer" [routerLink]="['/auth/login']" >Login</a> <a class="c-pointer m-l-20" [routerLink]="['/registration/patient']" >Patient Registration</a> ]
+        </div>
+        <div class="card-body">
+
+            <div id="errormessage" #errormessage>
+                <div class="alert alert-danger" role="alert" *ngIf="error !== null && error !== ''">
+                    {{error.error}}
+                </div>
+            </div>
+
+            <div id="successmessage" #successmessage>
+                <div class="alert alert-success" role="alert" *ngIf="success !== null && success !== ''">
+                    {{success}} <a class="c-pointer" [routerLink]="['/auth/login']" >Continue to login?</a>
+                </div>
+            </div>
+
+            <form novalidate [formGroup]="doctorForm" (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control default-input" id="username" formControlName="username">
+                    <small id="username" class="form-text text-muted" *ngIf="fControls.username.errors?.required && submitted">Username is Required!</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control default-input" id="password" formControlName="password">
+                    <small id="username" class="form-text text-muted" *ngIf="fControls.password.errors?.required && submitted">Password is Required!</small>
+                </div>
+                <div style="width: 275px;">
+                    <password-strength-meter [password]="doctorForm.value.password" [enableFeedback]="true"></password-strength-meter>
+                </div>
+                
+                <div class="form-group">
+                    <label for="repassword">Re-enter Password</label>
+                    <input type="password" class="form-control default-input" id="repassword" formControlName="repassword">
+                    <small id="repassword" class="form-text text-muted" *ngIf="doctorForm.value.password !== doctorForm.value.repassword">Password not match!</small>
+                </div>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control firstname" id="firstname" formControlName="firstname">
+                    <small id="firstname" class="form-text text-muted" *ngIf="fControls.firstname.errors?.required && submitted">First Name is Required!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control lastname" id="lastname" formControlName="lastname">
+                    <small id="lastname" class="form-text text-muted" *ngIf="fControls.lastname.errors?.required && submitted">Last Name is Required!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control age" id="age" formControlName="age">
+                    <small id="age" class="form-text text-muted" *ngIf="fControls.age.errors?.required && submitted">Age is Required!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-control default-input" id="gender" formControlName="gender">
+                        <option [value]="'M'">Male</option>
+                        <option [value]="'F'">Femal</option>
+                      </select>
+                    <small id="gender" class="form-text text-muted" *ngIf="fControls.gender.errors?.required && submitted">Gender is Required!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialties">Specialties</label>
+                    <ng-select
+                        id="specialties"
+                        [items]="specialtiesList"
+                        [multiple]="true"
+                        [closeOnSelect]="false"
+                        [searchable]="true"
+                        bindLabel="field"
+                        placeholder="Select Specialties"
+                        formControlName="specialties">
+                    </ng-select>
+                    <small id="specialties" class="form-text text-muted" *ngIf="fControls.specialties.errors?.required && submitted">Specialties is Required!</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="loader">
+                    <span *ngIf="loader === false">Submit</span>
+                    <span *ngIf="loader" class="spinner-grow spinner-grow-sm m-r-5" role="status" aria-hidden="true"></span>
+                    <span *ngIf="loader">Submitting...</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>

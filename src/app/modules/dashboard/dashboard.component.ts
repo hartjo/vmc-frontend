@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '@rootState/store';
+import { Logout } from '@rootState/actions/app.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+
+  user: any;
+
+  constructor(
+    private storeRoot: Store<fromRoot.State>,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(this.user);
+  }
+
+  logout() {
+    this.storeRoot.dispatch(Logout());
+    localStorage.clear();
+    this.router.navigate(['/auth/login']);
   }
 
 }

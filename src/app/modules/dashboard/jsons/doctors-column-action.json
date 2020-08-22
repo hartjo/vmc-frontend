@@ -1,0 +1,34 @@
+{
+    "columns": [
+        {
+            "name": "id",
+            "displayName": "#",
+            "searchable": true,
+            "sortable": true
+        },
+        {
+            "name": "lastname",
+            "displayName": "Lastname",
+            "searchable": true,
+            "sortable": true
+        },
+        {
+            "name": "firstname",
+            "displayName": "Firstname",
+            "searchable": true,
+            "sortable": true
+        },
+        {
+            "name": "age",
+            "displayName": "Age",
+            "searchable": true,
+            "sortable": true
+        },
+        {
+            "name": "gender",
+            "displayName": "Gender",
+            "searchable": true,
+            "sortable": true
+        }
+    ]
+}

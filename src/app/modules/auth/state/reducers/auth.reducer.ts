@@ -6,7 +6,7 @@ export const authFeatureKey = 'auth';
 
 export interface State {
   login: {
-    loading: boolean;
+    loader: boolean;
     success: {
       token: any;
       user: any;
@@ -17,7 +17,7 @@ export interface State {
 
 export const initialState: State = {
   login: {
-    loading: false,
+    loader: false,
     success: null,
     error: null
   }
@@ -34,16 +34,23 @@ export const reducer = createReducer(
       draft.login.error = null;
     })(state);
   }),
+  on(AuthActions.loginClear, state => {
+    return produce((draft) => {
+      draft.login.loader = false;
+      draft.login.success = null;
+      draft.login.error = null;
+    })(state);
+  }),
   on(AuthActions.loginSuccess, (state, action) => {
     return produce((draft) => {
-      draft.login.loader = true;
+      draft.login.loader = false;
       draft.login.success = action.data;
       draft.login.error = null;
     })(state);
   }),
   on(AuthActions.loginFailure, (state, action) => {
     return produce((draft) => {
-      draft.login.loader = true;
+      draft.login.loader = false;
       draft.login.success = null;
       draft.login.error = action.error;
     })(state);
